@@ -1,0 +1,22 @@
+[project]
+name = "transaction-cleaning-api"
+version = "0.1.0"
+description = "Rule-driven CSV data cleaning API with audit logging"
+requires-python = ">=3.9"
+
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "pandas",
+    "python-dateutil",
+    "jinja2"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "httpx"
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

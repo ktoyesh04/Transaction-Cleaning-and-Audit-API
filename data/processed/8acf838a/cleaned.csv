@@ -1,0 +1,3 @@
+account_id,amount,date,name
+1001,125000.0,2024-01-12,"('A. K. Sharma', [])"
+1002,125000.0,2024-01-12,"('John Doe', [{'row_number': 1, 'status': 'FIXED', 'rule_code': 'NORMALIZE_NAME', 'field': 'customer_name', 'original_value': 'John  Doe', 'new_value': 'John Doe', 'message': 'Normalized spacing and casing'}])"

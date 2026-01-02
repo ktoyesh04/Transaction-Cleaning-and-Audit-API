@@ -1,0 +1,17 @@
+{"row_number": 3,
+  "status": "FIXED",
+  "rule_code": "AMOUNT_LAKH_CONVERSION",
+  "field": "amount",
+  "original_value": "1.5L",
+  "new_value": 150000.0,
+  "message": "Converted lakh notation to number",
+  "timestamp": "2025-12-31T15:46:56.781720"
+}
+{"row_number": 4,
+  "status": "REJECT",
+  "rule_code": "NEGATIVE_AMOUNT",
+  "field": "amount",
+  "original_value": "-5000",
+  "new_value": null,
+  "message": "Negative amount not allowed",
+  "timestamp": "2025-12-31T15:46:56.784039"}

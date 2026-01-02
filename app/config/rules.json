@@ -1,0 +1,16 @@
+{
+  "account_id": {
+    "min_value": 1
+  },
+  "amount": {
+    "high_value_threshold": 125000,
+    "allow_negative": false,
+    "allow_test": false
+  },
+  "date": {
+    "day_first": true
+  },
+  "name": {
+    "allow_digits": false
+  }
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transaction Cleaning Tool</title>
+    <style>
+        body { font-family: Arial; margin: 40px; }
+        .box { border: 1px solid #ccc; padding: 20px; width: 500px; }
+        button { padding: 8px 12px; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+
+<h2>Transaction Cleaning Tool</h2>
+
+<div class="box">
+    <form action="/ui/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <br><br>
+        <button type="submit">Upload CSV</button>
+    </form>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+</div>
+
+{% if summary %}
+    <h3>Processing Summary</h3>
+    <ul>
+        <li>Total Rows: {{ summary.total }}</li>
+        <li>Cleaned: {{ summary.cleaned }}</li>
+        <li>Flagged: {{ summary.flagged }}</li>
+        <li>Rejected: {{ summary.rejected }}</li>
+    </ul>
+
+    <h3>Download Files</h3>
+    <ul>
+        <li><a href="/download/{{ summary.job_id }}/cleaned">Download Cleaned</a></li>
+        <li><a href="/download/{{ summary.job_id }}/flagged">Download Flagged</a></li>
+        <li><a href="/download/{{ summary.job_id }}/rejected">Download Rejected</a></li>
+    </ul>
+{% endif %}
+
+</body>
+</html>
