@@ -27,6 +27,7 @@ This service makes data quality explicit, explainable, and auditable.
 
 ## High-Level Architecture
 
+```
 Client
   └── Upload CSV
         └── FastAPI
@@ -35,6 +36,7 @@ Client
               │     └── Audit generator
               ├── Job-scoped file storage
               └── API / UI responses
+```
 
 Each upload creates an isolated job, identified by a unique job ID.
 
