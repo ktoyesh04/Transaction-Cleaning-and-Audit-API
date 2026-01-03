@@ -1,0 +1,17 @@
+# created by virtualenv automatically
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Pytest
+.pytest_cache/
+
+# Virtual env
+venv/
+.env/
+
+# OS
+.DS_Store
+

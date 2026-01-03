@@ -10,7 +10,8 @@ dependencies = [
     "pandas",
     "python-dateutil",
     "jinja2",
-    "python-multipart"
+    "python-multipart",
+    "pytest"
 ]
 
 [project.optional-dependencies]
