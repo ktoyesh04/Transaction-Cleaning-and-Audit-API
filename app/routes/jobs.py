@@ -8,8 +8,8 @@ import time
 import pandas as pd
 from app.services.processor import validate_and_clean
 
-BASE_DIR = "data/processed"
-templates = Jinja2Templates(directory=r"app\templates")
+BASE_DIR = os.path.basename(__file__)
+# templates = Jinja2Templates(os.path.join(BASE_DIR, "templates"))
 router = APIRouter(prefix="/jobs", tags=["Jobs"])
 
 
@@ -28,6 +28,7 @@ def upload_csv(file: UploadFile = File(...)):
 	except Exception:
 		raise HTTPException(status_code=400, detail="Invalid CSV file")
 	
+	df = df.drop_duplicates()
 	cleaned_df, flagged_df, rejected_df = validate_and_clean(df)
 	cleaned_df.to_csv(f"{job_folder}/cleaned.csv", index=False)
 	flagged_df.to_csv(f"{job_folder}/flagged.csv", index=False)
@@ -57,7 +58,7 @@ def upload_csv(file: UploadFile = File(...)):
 @router.post("/ui/upload")
 def ui_upload(request: Request, file: UploadFile = File(...)):
 	if not file.filename.endswith(".csv"):
-		return templates.TemplateResponse(
+		return request.app.state.templates.TemplateResponse(
 			"index.html",
 			{"request": request, "error": "Only CSV files allowed"}
 		)
@@ -66,7 +67,10 @@ def ui_upload(request: Request, file: UploadFile = File(...)):
 	job_folder = os.path.join(BASE_DIR, job_id)
 	os.makedirs(job_folder, exist_ok=True)
 	
-	df = pd.read_csv(file.file)
+	try:
+		df = pd.read_csv(file.file)
+	except Exception:
+		return HTTPException(status_code=400, detail="Invalid csv file")
 	df = df.drop_duplicates()
 	
 	start = time.perf_counter()
@@ -89,7 +93,7 @@ def ui_upload(request: Request, file: UploadFile = File(...)):
 	with open(f"{job_folder}/summary.json", "w") as f:
 		json.dump(summary, f, indent=2)
 	
-	return templates.TemplateResponse(
+	return request.app.state.templates.TemplateResponse(
 		"index.html",
 		{
 			"request": request,
