@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: transaction-cleaning-api
+Version: 0.1.0
+Summary: Rule-driven CSV data cleaning API with audit logging
+Requires-Python: >=3.9
+Requires-Dist: fastapi
+Requires-Dist: uvicorn
+Requires-Dist: pandas
+Requires-Dist: python-dateutil
+Requires-Dist: jinja2
+Requires-Dist: python-multipart
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: httpx; extra == "dev"

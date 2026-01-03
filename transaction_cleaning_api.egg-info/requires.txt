@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+pandas
+python-dateutil
+jinja2
+python-multipart
+
+[dev]
+pytest
+httpx
