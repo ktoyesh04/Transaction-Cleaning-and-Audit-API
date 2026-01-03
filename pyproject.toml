@@ -19,5 +19,12 @@ dev = [
     "httpx"
 ]
 
+[tool.setuptools]
+package-dir = {"" = "."}
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+exclude = ["data*", "tests*"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
