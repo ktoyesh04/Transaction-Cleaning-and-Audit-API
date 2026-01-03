@@ -1,6 +1,0 @@
-{"row_number": 0, "status": "FIXED", "rule_code": "REMOVE_CURRENCY_SYMBOL", "field": "amount", "original_value": "\u20b91,25,000", "new_value": "1,25,000", "message": "Removed currency symbol", "timestamp": "2026-01-02T14:22:36.724760"}
-{"row_number": 0, "status": "FIXED", "rule_code": "REMOVE_COMMAS", "field": "amount", "original_value": "1,25,000", "new_value": "125000", "message": "Removed thousand separators", "timestamp": "2026-01-02T14:22:36.724760"}
-{"row_number": 2, "status": "REJECT", "rule_code": "INVALID_ACCOUNT_ID", "field": "account_id", "original_value": NaN, "new_value": null, "message": "Account ID must be integer", "timestamp": "2026-01-02T14:22:36.724760"}
-{"row_number": 3, "status": "FIXED", "rule_code": "AMOUNT_LAKH_CONVERSION", "field": "amount", "original_value": "1.5L", "new_value": 150000.0, "message": "Converted lakh notation to number", "timestamp": "2026-01-02T14:22:36.724760"}
-{"row_number": 3, "status": "FLAG", "rule_code": "HIGH_AMOUNT", "field": "amount", "value": "1.5L", "message": "Flagged the high amount", "timestamp": "2026-01-02T14:22:36.724760"}
-{"row_number": 4, "status": "REJECT", "rule_code": "NEGATIVE_AMOUNT", "field": "amount", "original_value": "-5000", "new_value": null, "message": "Negative amount not allowed", "timestamp": "2026-01-02T14:22:36.724760"}
