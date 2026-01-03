@@ -11,13 +11,8 @@ dependencies = [
     "python-dateutil",
     "jinja2",
     "python-multipart",
-    "pytest"
-]
-
-[project.optional-dependencies]
-dev = [
     "pytest",
-    "httpx"
+    "httpx
 ]
 
 [tool.setuptools]
