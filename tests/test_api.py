@@ -4,6 +4,7 @@ import io
 
 client = TestClient(app)
 
+
 def test_csv_upload_endpoint():
     csv_content = """account_id,amount,date,customer_name
 1,1.5L,01/01/2024,Amit
@@ -11,7 +12,7 @@ def test_csv_upload_endpoint():
 """
 
     response = client.post(
-        "/upload",
+        "/jobs/upload",
         files={
             "file": ("test.csv", io.BytesIO(csv_content.encode()), "text/csv")
         }
